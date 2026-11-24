@@ -14,3 +14,7 @@ html.lenis, html.lenis body { height: auto; }
 /* .grid (padding: 0 3rem) loads later and wiped the list offset; restore it so the title shows first */
 .work-list.grid { padding-top: calc(5rem + 50svh); padding-bottom: 50svh; }
 @media (min-width: 1024px) { .work-list.grid { padding-top: calc(50svh - 4.16667vw); } }
+
+/* iOS Safari: with overflow-x:hidden, body can become the sticky hero's scroll container (e.g. while html is scroll-locked),
+   so the hero scrolled away and left a blank screen. clip blocks sideways scroll without creating a scroll container. */
+body { overflow-x: hidden; overflow-x: clip; }
