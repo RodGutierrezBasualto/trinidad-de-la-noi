@@ -1,0 +1,12 @@
+/* Replica-only additions. The site's own CSS (inline per page + css/components.css) does everything else. */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-stopped { overflow: hidden; }
+/* our splitter keeps words as inline-blocks so lines / chars can be transformed */
+.home-about__title-word, .about-hero__char { will-change: transform; }
+
+/* template: a space between each city and its clock */
+.footer-content__office .clock { margin-left: .3em; }
+
+/* portrait photos in landscape frames: keep the face in shot */
+.base-image--fit img { object-position: 50% 10%; }
