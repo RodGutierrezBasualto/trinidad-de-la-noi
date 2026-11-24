@@ -359,6 +359,18 @@
     const assets = $$('.home-hero-asset');
     let current = 0;
 
+    // phones: shrink any hero title that would run into the menu button
+    if (innerWidth < 768) {
+      const toggle = $('.nav-toggle');
+      const max = (toggle ? toggle.getBoundingClientRect().left : innerWidth - 60) - 24;
+      titles.forEach(t => {
+        const a = $('a', t) || t;
+        const left = t.closest('.home-hero-titles').getBoundingClientRect().left;
+        const w = t.offsetWidth;
+        if (left + w > max) a.style.fontSize = parseFloat(getComputedStyle(a).fontSize) * (max - left) / w + 'px';
+      });
+    }
+
     // media: every project video is mounted at once; only the visible one plays
     assets.forEach((a, i) => {
       const d = BC.hero[i] || {};

@@ -10,3 +10,7 @@ html.lenis, html.lenis body { height: auto; }
 
 /* portrait photos in landscape frames: keep the face in shot */
 .base-image--fit img { object-position: 50% 10%; }
+
+/* .grid (padding: 0 3rem) loads later and wiped the list offset; restore it so the title shows first */
+.work-list.grid { padding-top: calc(5rem + 50svh); padding-bottom: 50svh; }
+@media (min-width: 1024px) { .work-list.grid { padding-top: calc(50svh - 4.16667vw); } }
